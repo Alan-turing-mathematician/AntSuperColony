@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load embed_video_tags %}
+
+
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    
+
+    <!-- ##### Breaking News Area Start ##### -->
+    <section class="breaking-news-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-ticker d-flex flex-wrap align-items-center">
+                        <div class="title">
+                            <h6>Trending</h6>
+                        </div>
+                        <div id="breakingNewsTicker" class="ticker">
+
+                            <ul>
+                                {% for post in latest_two %}
+                                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                                {% endfor %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breaking News Area End ##### -->
+
+    <!-- ##### Post Details Title Area Start ##### 
+    <div class="post-details-title-area bg-overlay clearfix" style="background-image: url(img/bg-img/22.jpg)">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-lg-8">
+                     Post Content 
+                    <div class="post-content">
+                        <p class="tag"><span>Local News</span></p>
+                        <p class="post-title">Live out your Mario Kart dreams on the streets of Tokyo</p>
+                        <div class="d-flex align-items-center">
+                            <span class="post-date mr-30">June 20, 2018</span>
+                            <span class="post-date">By Michael Smith</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     ##### Post Details Title Area End ##### -->
+
+    <!-- ##### Post Details Area Start ##### -->
+    <section class="post-news-area section-padding-100-0 mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+                            <div class="col-12 col-lg-8">
+                                <a href="#">{% video post.video 'small' %}</a>
+                            </div>
+                        
+                <!-- Post Details Content Area -->
+                <div class="col-12 col-lg-8">
+                    <div class="post-details-content mb-100">
+                        <p>{{ post.title }}</p>
+                    </div>
+
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mb-100">
+                        <h4 class="mb-50">Comments</h4>
+
+                        <ol>
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                {% for comment in post.get_comments %}
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="{{ comment.author.profile.avatar.url}}" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <div class="d-flex">
+                                            <a href="#" class="post-author">{{ comment.author }}</a>
+                                            <a href="#" class="post-date">{{ comment.date|timesince}} ago</a>
+                                            <a href="#" class="reply">Reply</a>
+                                        </div>
+                                        <p>{{ comment.content }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                <!--<ol class="children">
+                                    <li class="single_comment_area">
+                                         Comment Content 
+                                        <div class="comment-content d-flex">
+                                            Comment Author 
+                                            <div class="comment-author">
+                                                <img src="img/bg-img/33.jpg" alt="author">
+                                            </div>
+                                             Comment Meta 
+                                            <div class="comment-meta">
+                                                <div class="d-flex">
+                                                    <a href="#" class="post-author">Christian Williams</a>
+                                                    <a href="#" class="post-date">April 15, 2018</a>
+                                                    <a href="#" class="reply">Reply</a>
+                                                </div>
+                                                <p>Consectetur adipiscing elit. Prae7777777777777sent vel tortor facilisis, Nullam vel orci dui. Su spendisse sit amet laoreet neque.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>-->
+                            </li>
+
+                        </ol>
+                    </div>
+
+                    <div class="post-a-comment-area mb-30 clearfix">
+                        <h4 class="mb-50">Leave a reply</h4>
+
+                        <!-- Reply Form -->
+                        <div class="contact-form-area">
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    {{ form }}
+                                        <button class="btn newsbox-btn mt-30" type="submit">Submit Comment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Post Details Area End ##### -->
+{% endblock content %}
