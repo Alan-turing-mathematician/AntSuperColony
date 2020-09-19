@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrapform',
     'embed_video',
+    'whitenoise.runserver_nostatic',
 ]
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'AntColony.urls'
@@ -137,3 +139,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_IMAGE_BACKEND = "pillow"
 LOGIN_REDIRECT_URL = 'home'
 
+ALLOWED_HOSTS = ['*']
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

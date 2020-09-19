@@ -9,13 +9,13 @@ from embed_video.fields import EmbedVideoField
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	avatar = models.ImageField(upload_to='avatars', blank=True)
+	avatar = models.ImageField(upload_to='avatars', default='rikka4.jpg', blank=True)
 
-	def __str__(self):
+	def __str__(self, *args, **kwargs):
 		return self.user.username
 
 
-	def save(self):
+	def save(self, *args, **kwargs):
 		super().save()
 
 		img = Image.open(self.avatar.path)

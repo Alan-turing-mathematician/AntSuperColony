@@ -5,14 +5,12 @@ from .models import Profile
 
 
 @receiver(post_save, sender=User)
-def CreateProfile(sender, instance, created, **kwargs):
-	if created:
-		Profile.objects.create(user=instance)
-		print('yes!')
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
 
 
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.profile.save()
 
-'''@receiver(post_save, sender=User)
-def SaveProfile(sender, instance, **kwargs):
-	instance.user_profile.save()
-	print('Ant!')'''
