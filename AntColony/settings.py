@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_filters',
-    'bootstrapform',
     'embed_video',
     'whitenoise.runserver_nostatic',
+    'waitress',
 ]
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
