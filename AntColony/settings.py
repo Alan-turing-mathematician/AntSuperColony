@@ -139,5 +139,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_IMAGE_BACKEND = "pillow"
 LOGIN_REDIRECT_URL = 'home'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['165.227.131.93']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
