@@ -1,0 +1,22 @@
+{
+  "completed": "2020-10-01T15:26:09.713117Z",
+  "periodic": true,
+  "started": "2020-10-01T15:25:53.635963Z",
+  "versions": [
+    {
+      "filename": "setuptools-50.3.0-py3-none-any.whl",
+      "found_date": "2020-10-01T15:25:54.565442Z",
+      "release_date": "2020-09-05T15:27:05.000000Z"
+    },
+    {
+      "filename": "setuptools-50.2.0-py3-none-any.whl",
+      "found_date": "2020-10-01T15:26:02.446868Z",
+      "release_date": "2020-09-04T14:13:43.000000Z"
+    },
+    {
+      "filename": "setuptools-50.1.0-py3-none-any.whl",
+      "found_date": "2020-10-01T15:26:07.070178Z",
+      "release_date": "2020-09-03T01:04:08.000000Z"
+    }
+  ]
+}

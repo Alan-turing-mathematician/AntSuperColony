@@ -14,7 +14,7 @@ class Profile(models.Model):
 	def __str__(self, *args, **kwargs):
 		return self.user.username
 
-
+	
 	def save(self, *args, **kwargs):
 		super().save()
 
