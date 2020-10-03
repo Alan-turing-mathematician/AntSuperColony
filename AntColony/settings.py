@@ -79,7 +79,7 @@ TEMPLATES = [
         },
     },
 ]
-CSRF_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE = False
 WSGI_APPLICATION = 'AntColony.wsgi.application'
 
 
@@ -154,4 +154,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_IMAGE_BACKEND = "pillow"
 LOGIN_REDIRECT_URL = 'home'
 
-ALLOWED_HOSTS = ['165.227.131.93'
+ALLOWED_HOSTS = ['165.227.131.93']
