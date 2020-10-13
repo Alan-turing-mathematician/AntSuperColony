@@ -8,7 +8,7 @@ urlpatterns = [
     path('', HomePage, name='home'),
     path('login/', AuthViews.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', AuthViews.LogoutView.as_view(template_name='logout.html'), name='logout'),
-    path('register/', UserRegisterPage.as_view(template_name='register.html'), name='register'),
+    path('register/', UserRegisterPage, name='register'),
     path('create/', PostCreateView.as_view(template_name='create_post.html'), name='create_post'),
     path('profile_my/', UserProfilePage, name='profile'),
     path('post/<id>/', PostSingle, name='post_single'),

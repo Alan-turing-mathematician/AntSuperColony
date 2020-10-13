@@ -95,10 +95,21 @@ def VideoSingle(request, id):
 
 
 # СТРАНИЦА РЕГЕСТРАЦИИ МУРАВЬИНЫХ ПОЛЬЗОВАТЕЛЕЙ
-class UserRegisterPage(CreateView):
-	model = User
-	email = models.EmailField()
-	fields = ['username', 'email', 'password']
+def UserRegisterPage(request):
+	if request.method == 'POST':
+		form = UserCreateForm(request.POST)
+
+		if form.is_valid():
+			form.save()
+
+	else:
+		form = UserCreateForm()
+
+	context = {
+		'form': form
+	}
+
+	return render(request, 'register.html', context)
 
 
 # СТРАНИЦА СОЗДАНИЯ МУРАВЬИНЫХ ПОСТОВ
